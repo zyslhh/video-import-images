@@ -14,8 +14,9 @@ export const Button: React.FC<ButtonProps> = ({
   icon,
   ...props
 }) => {
+  // Added 'gap-2' to handle spacing between icon and children automatically
   const baseStyles =
-    "inline-flex items-center justify-center rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark disabled:opacity-50 disabled:cursor-not-allowed gap-2";
 
   const variants = {
     primary: "bg-primary hover:bg-blue-600 text-white focus:ring-blue-500",
@@ -36,7 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
       {...props}
     >
-      {icon && <span className="mr-2">{icon}</span>}
+      {icon && <span className="flex-shrink-0">{icon}</span>}
       {children}
     </button>
   );
